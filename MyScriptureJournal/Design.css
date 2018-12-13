@@ -64,6 +64,14 @@ span.caption {
 span.dataDisplay {
     font-weight: bold;
 }
-a {
+a:link {
+    color: black;
+}
 
+a:visited {
+    color: #a012eb;
+}
+
+a:hover {
+    color: #9127a1;
 }
