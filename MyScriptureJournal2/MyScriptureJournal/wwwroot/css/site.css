@@ -32,6 +32,9 @@ body {
     background-color: lightblue;
 }
 
+h1 {
+    font-family: 'Charm', cursive;
+}
 h1, p {
     text-align: center;
 }
