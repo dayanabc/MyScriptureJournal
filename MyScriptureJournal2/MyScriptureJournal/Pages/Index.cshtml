@@ -1,0 +1,80 @@
+﻿@page
+@model MyScriptureJournal.Pages.Scriptures.IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+
+<environment include="Development">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</environment>
+<div class="container">
+    <div class="jumbotron">
+        <h1>My Scripture Journal</h1>
+        <p>
+            Simple Scripture Journal to jot down your favorite scriptures!
+        </p>
+
+        <p>To get started click <a asp-page="/Scriptures/Index">Here</a>!</p>
+    </div>
+</div>
+
+
+<form>
+    <p>
+        <select asp-for="ScriptureBook" asp-items="Model.Books">
+            <option value="">All</option>
+        </select>
+        Title: <input type="text" asp-for="SearchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+
+<h1>Here is a list of scriptures you have marked so far.</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Scripture[0].Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Scripture[0].Book)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Scripture[0].Chapter)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Scripture[0].Verse)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Scripture[0].Notes)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Scripture)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Book)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Chapter)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Verse)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Notes)
+                </td>
+                
+            </tr>
+        }
+    </tbody>
+</table>
